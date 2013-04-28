@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Carl-Admin\Documents\GameCode\.metadata\.plugins\org.eclipse.jdt.core
-3872431459.index
-3417787616.index
