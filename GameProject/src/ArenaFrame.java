@@ -18,9 +18,9 @@ public class ArenaFrame extends JFrame
 //implements Runnable
 
 {
-
+ // new comment
     boolean onesTurn = false;
-
+// new comment 2
     boolean gameEnded = true;
 
     JButton startButton;
