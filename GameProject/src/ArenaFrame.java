@@ -1,240 +1,124 @@
 import java.awt.BorderLayout;
-
 import java.awt.Dimension;
-
 import java.awt.GridLayout;
-
 import java.awt.event.ActionEvent;
-
 import java.awt.event.ActionListener;
-
 import java.util.Scanner;
-
 import javax.swing.*;
-
-
 public class ArenaFrame extends JFrame
-
 //implements Runnable
-
 {
+	//new comment 3
  // new comment
     boolean onesTurn = false;
 // new comment 2
     boolean gameEnded = true;
-
     JButton startButton;
-
     JButton attackButton;
-
     Arena arena;
-
     StartButtonListener startListener;
-
     AttackButtonListener attackListener;
-
     JPanel inputPanel;
-
     JPanel menuPanel;
-
     JPanel arenaPanel;
-
     JTextField attackField;
-
     JTextArea battleArea;
-
     JLabel enterStartLabel, restartLabel, attackOneLabel, attackTwoLabel;
-
     JPanel oneAttackPanel, oneItemPanel, twoAttackPanel, twoItemPanel;
-
     JButton attack11, attack12, attack13, attack14, item11, item12, item13, attack21, attack22, attack23, attack24, item21, item22, item23;
-
     JButton oneAttackButtons[] = new JButton[4];
-
     JButton oneItemButtons[] = new JButton[3];
-
     JButton twoAttackButtons[] = new JButton[4];
-
     JButton twoItemButtons[] = new JButton[3];
-
     String input;
-
     StringBuffer history;
-
     Thread t1;
-
     //JPanel northPanel;
-
     public ArenaFrame()
-
     {
-
         arena = new Arena();
-
         startListener = new StartButtonListener();
-
         attackListener = new AttackButtonListener();
-
         setLayout(new BorderLayout());
-
         startButton = new JButton("Start Battle?");
-
         attackButton = new JButton("Attack!");
-
         attack11 = new JButton("None");
-
         attack12 = new JButton("None");
-
         attack13 = new JButton("None");
-
         attack14 = new JButton("None");
-
         item11 = new JButton("None");
-
         item12 = new JButton("None");
-
         item13 = new JButton("None");
-
         attack21 = new JButton("None");
-
         attack22 = new JButton("None");
-
         attack23 = new JButton("None");
-
         attack24 = new JButton("None");
-
         item21 = new JButton("None");
-
         item22 = new JButton("None");
-
         item23 = new JButton("None");
-
         inputPanel = new JPanel();
-
         menuPanel = new JPanel();
-
         arenaPanel = new JPanel(new BorderLayout());
-
         oneAttackPanel = new JPanel();
-
         oneItemPanel = new JPanel();
-
         twoAttackPanel = new JPanel();
-
         twoItemPanel = new JPanel();
-
         attackField = new JTextField(8);
-
         attackField.setEditable(true);
-
         battleArea = new JTextArea(10, 50);
-
         battleArea.setEditable(false);
-
         battleArea.setMaximumSize(new Dimension(20,20));
-
         battleArea.setLineWrap(true);
-
         history = new StringBuffer();
-
         JScrollPane scroll = new JScrollPane(battleArea, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
         JTabbedPane tabbedPaneOne = new JTabbedPane();
-
         JTabbedPane tabbedPaneTwo = new JTabbedPane();
-
         tabbedPaneOne.addTab("Attacks", oneAttackPanel);
-
         tabbedPaneOne.addTab("Items", oneItemPanel);
-
         tabbedPaneTwo.addTab("Attacks", twoAttackPanel);
-
         tabbedPaneTwo.addTab("Items", twoItemPanel);
-
         //t1 = new Thread(this);
-
         if(arena.one.getSpeed() > arena.two.getSpeed())
-
         {
-
             onesTurn = true;
-
         }   
-
         enterStartLabel = new JLabel("Press 'Start Battle?' to fight!");
-
         attackOneLabel = new JLabel("What will " + arena.one.getName() + " do?");
-
         attackTwoLabel = new JLabel("What will " + arena.two.getName() + " do?");
-
         restartLabel = new JLabel("Press 'Start Battle' to battle again!");
-
         oneAttackPanel.add(attack11);
-
         oneAttackPanel.add(attack12);
-
         oneAttackPanel.add(attack13);
-
         oneAttackPanel.add(attack14);
-
         oneItemPanel.add(item11);
-
         oneItemPanel.add(item12);
-
         oneItemPanel.add(item13);
-
         twoAttackPanel.add(attack21);
-
         twoAttackPanel.add(attack22);
-
         twoAttackPanel.add(attack23);
-
         twoItemPanel.add(item21);
-
         twoItemPanel.add(item22);
-
         twoItemPanel.add(item23);
-
         twoAttackPanel.add(attack24);
-
         inputPanel.add(enterStartLabel);
-
         menuPanel.setLayout(new BorderLayout());
-
         menuPanel.add(inputPanel, BorderLayout.NORTH);
-
         menuPanel.add(scroll, BorderLayout.SOUTH);
-
         arena.add(startButton);
-
         startButton.addActionListener(startListener);
-
         attackButton.addActionListener(attackListener);
-
         attackField.addActionListener(attackListener);
-
         //add(northLabel, BorderLayout.PAGE_START);
-
         arenaPanel.add(tabbedPaneOne, BorderLayout.WEST);
-
         arenaPanel.add(arena, BorderLayout.CENTER);
-
         arenaPanel.add(tabbedPaneTwo, BorderLayout.EAST);
-
         add(arenaPanel, BorderLayout.CENTER);
-
         add(menuPanel, BorderLayout.SOUTH);
-
     }
-
     public void UIupdate()
-
     {
-
         inputPanel.remove(enterStartLabel);
-
         inputPanel.remove(attackOneLabel);
-
         inputPanel.remove(attackTwoLabel);
 
         inputPanel.remove(restartLabel);
