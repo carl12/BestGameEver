@@ -10,6 +10,7 @@ import javax.swing.*;
  * COMPLEX FORMULAS FOR ATTACK(USE DEFENSE AND/OR EVASIVENESS), LEVEL UP SYSTEM
  *
  */
+//ajdkf;ajsdkfdj;asasdjfasdfj;afaslfasdkf;a
 public class Arena extends JPanel{
 	//boolean oneFirst = false;
 	//boolean gameEnded = false;
