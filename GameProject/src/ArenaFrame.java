@@ -8,6 +8,8 @@ import javax.swing.*;
 public class ArenaFrame extends JFrame
 //implements Runnable
 {
+	//werwerwer
+	//asdfasdf
 	//new comment 3
  // new comment
     boolean onesTurn = false;
